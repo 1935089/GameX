@@ -1,0 +1,66 @@
+[gd_scene load_steps=4 format=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Control
+
+var energy = 4 setget set_energy
+var max_energy = 4 setget set_max_energy
+
+onready var energyUIFull = $EnergyUIFull
+onready var energyUIEmpty = $EnergyUIEmpty
+
+
+func set_energy(value):
+	
+	energy = clamp(value, 0, max_energy)
+	
+	if energyUIFull != null:
+		energyUIFull.rect_size.x = energy * 15 #pcq les energy sont 15px wide
+		
+func set_max_energy(value):
+	max_energy = max(value, 1)
+	self.energy = min(energy,max_energy)
+	if energyUIEmpty != null:
+		energyUIEmpty.rect_size.x = max_energy * 15 #pcq les energy sont 15px wide
+		
+func _ready():
+
+	self.max_energy = PlayerStats.max_energy
+	self.energy = PlayerStats.energy
+# warning-ignore:return_value_discarded
+	PlayerStats.connect(\"energy_changed\", self, \"set_energy\")
+	
+# warning-ignore:return_value_discarded
+	PlayerStats.connect(\"max_energy_changed\",self,\"self_max_energy\")
+	
+
+
+"
+
+[sub_resource type="StreamTexture" id=2]
+load_path = "res://.import/EnergyUIEmpty.png-c6013493721f7b0e1f634527111c87a9.stex"
+
+[sub_resource type="StreamTexture" id=3]
+load_path = "res://.import/EnergyUIFull.png-10aebd1be5a238c2e41e5546fdc5e848.stex"
+
+[node name="Energy" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = SubResource( 1 )
+
+[node name="EnergyUIEmpty" type="TextureRect" parent="."]
+margin_right = 59.0
+margin_bottom = 11.0
+texture = SubResource( 2 )
+stretch_mode = 2
+
+[node name="EnergyUIFull" type="TextureRect" parent="."]
+margin_right = 60.0
+margin_bottom = 11.0
+texture = SubResource( 3 )
+expand = true
+stretch_mode = 2
+
+[node name="EnergyTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="EnergyTimer" to="." method="_on_EnergyTimer_timeout"]

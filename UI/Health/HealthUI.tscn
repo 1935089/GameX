@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Control
+
+var hearts = 4 setget set_hearts
+var max_hearts = 4 setget set_max_hearts
+
+onready var heartUIFull = $HeartUIFull
+onready var heartUIEmpty = $HeartUIEmpty
+
+func set_hearts(value):
+	hearts = clamp(value, 0, max_hearts)
+	if heartUIFull != null:
+		heartUIFull.rect_size.x = hearts * 15 #pcq les coeurs sont 15px wide
+		
+func set_max_hearts(value):
+	max_hearts = max(value, 1)
+	self.hearts = min(hearts,max_hearts)
+	if heartUIEmpty != null:
+		heartUIEmpty.rect_size.x = max_hearts * 15 #pcq les coeurs sont 15px wide
+		
+func _ready():
+	self.max_hearts = PlayerStats.max_health
+	self.hearts = PlayerStats.health
+# warning-ignore:return_value_discarded
+	PlayerStats.connect(\"health_changed\", self, \"set_hearts\")
+# warning-ignore:return_value_discarded
+	PlayerStats.connect(\"max_health_changed\",self,\"self_max_hearts\")
+"
+
+[sub_resource type="StreamTexture" id=2]
+load_path = "res://.import/HeartUIEmpty.png-417b0a6fe975644d9dba3671413f10e5.stex"
+
+[sub_resource type="StreamTexture" id=3]
+load_path = "res://.import/HeartUIFull.png-e9d9ebbeee52aaa00895457d920c0f53.stex"
+
+[node name="HealthUI" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = SubResource( 1 )
+
+[node name="HeartUIEmpty" type="TextureRect" parent="."]
+margin_right = 56.0
+margin_bottom = 11.0
+texture = SubResource( 2 )
+stretch_mode = 2
+
+[node name="HeartUIFull" type="TextureRect" parent="."]
+margin_right = 48.0
+margin_bottom = 11.0
+texture = SubResource( 3 )
+expand = true
+stretch_mode = 2

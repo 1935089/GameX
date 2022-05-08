@@ -1,0 +1,171 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://UI/Energy/EnergyUI.tscn" type="PackedScene" id=1]
+[ext_resource path="res://UI/Health/HealthUI.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Inventory/item_slot_default_background.png" type="Texture" id=3]
+[ext_resource path="res://UI/UICanvasLayer.gd" type="Script" id=4]
+[ext_resource path="res://UI/Hotbar/hotbar_background.png" type="Texture" id=5]
+[ext_resource path="res://UI/Inventory.tscn" type="PackedScene" id=6]
+[ext_resource path="res://UI/Equipment.tscn" type="PackedScene" id=7]
+[ext_resource path="res://UI/Tooltip.tscn" type="PackedScene" id=8]
+
+[sub_resource type="StyleBoxTexture" id=8]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 18, 18 )
+
+[sub_resource type="DynamicFontData" id=4]
+font_path = "res://Font/m5x7.ttf"
+
+[sub_resource type="DynamicFont" id=5]
+size = 8
+font_data = SubResource( 4 )
+
+[sub_resource type="StyleBoxTexture" id=9]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 18, 18 )
+
+[sub_resource type="DynamicFontData" id=6]
+font_path = "res://Font/m5x7.ttf"
+
+[sub_resource type="DynamicFont" id=7]
+size = 8
+font_data = SubResource( 6 )
+
+[sub_resource type="StyleBoxTexture" id=10]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 18, 18 )
+
+[sub_resource type="StyleBoxTexture" id=11]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 18, 18 )
+
+[sub_resource type="StyleBoxTexture" id=12]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 18, 18 )
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource( 4 )
+
+[node name="HealthUI" parent="." instance=ExtResource( 2 )]
+mouse_filter = 2
+
+[node name="Energy" parent="." instance=ExtResource( 1 )]
+margin_top = 16.0
+margin_bottom = 56.0
+mouse_filter = 2
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="Hotbar" type="Control" parent="Control"]
+margin_top = 24.0
+margin_right = 40.0
+margin_bottom = 64.0
+
+[node name="TextureRect" type="TextureRect" parent="Control/Hotbar"]
+margin_left = 96.0
+margin_top = 136.0
+margin_right = 258.0
+margin_bottom = 158.0
+rect_scale = Vector2( 0.793207, 0.783048 )
+texture = ExtResource( 5 )
+stretch_mode = 1
+
+[node name="1" type="Panel" parent="Control/Hotbar"]
+margin_left = 104.0
+margin_top = 136.0
+margin_right = 120.0
+margin_bottom = 152.0
+custom_styles/panel = SubResource( 8 )
+
+[node name="Texture1" type="TextureRect" parent="Control/Hotbar/1"]
+margin_right = 16.0
+margin_bottom = 16.0
+
+[node name="Label1" type="Label" parent="Control/Hotbar/1"]
+margin_top = 8.0
+margin_right = 8.0
+margin_bottom = 16.0
+custom_fonts/font = SubResource( 5 )
+
+[node name="2" type="Panel" parent="Control/Hotbar"]
+margin_left = 128.0
+margin_top = 136.0
+margin_right = 144.0
+margin_bottom = 152.0
+custom_styles/panel = SubResource( 9 )
+
+[node name="Texture2" type="TextureRect" parent="Control/Hotbar/2"]
+margin_right = 16.0
+margin_bottom = 16.0
+
+[node name="Label2" type="Label" parent="Control/Hotbar/2"]
+margin_top = 8.0
+margin_right = 8.0
+margin_bottom = 16.0
+custom_fonts/font = SubResource( 7 )
+
+[node name="3" type="Panel" parent="Control/Hotbar"]
+margin_left = 152.0
+margin_top = 136.0
+margin_right = 168.0
+margin_bottom = 152.0
+custom_styles/panel = SubResource( 10 )
+
+[node name="Texture3" type="TextureRect" parent="Control/Hotbar/3"]
+margin_right = 16.0
+margin_bottom = 16.0
+
+[node name="Label3" type="Label" parent="Control/Hotbar/3"]
+margin_top = 8.0
+margin_right = 8.0
+margin_bottom = 16.0
+custom_fonts/font = SubResource( 7 )
+align = 3
+
+[node name="4" type="Panel" parent="Control/Hotbar"]
+margin_left = 176.0
+margin_top = 136.0
+margin_right = 192.0
+margin_bottom = 152.0
+custom_styles/panel = SubResource( 11 )
+
+[node name="Texture4" type="TextureRect" parent="Control/Hotbar/4"]
+margin_right = 16.0
+margin_bottom = 16.0
+
+[node name="Label4" type="Label" parent="Control/Hotbar/4"]
+margin_top = 8.0
+margin_right = 8.0
+margin_bottom = 16.0
+custom_fonts/font = SubResource( 7 )
+align = 3
+
+[node name="5" type="Panel" parent="Control/Hotbar"]
+margin_left = 200.0
+margin_top = 136.0
+margin_right = 216.0
+margin_bottom = 152.0
+custom_styles/panel = SubResource( 12 )
+
+[node name="Texture5" type="TextureRect" parent="Control/Hotbar/5"]
+margin_right = 16.0
+margin_bottom = 16.0
+
+[node name="Label5" type="Label" parent="Control/Hotbar/5"]
+margin_top = 8.0
+margin_right = 8.0
+margin_bottom = 16.0
+custom_fonts/font = SubResource( 7 )
+align = 3
+
+[node name="Inventory" parent="Control" instance=ExtResource( 6 )]
+
+[node name="Equipment" parent="Control" instance=ExtResource( 7 )]
+
+[node name="Popup" parent="." instance=ExtResource( 8 )]
+
+[editable path="Control/Inventory"]
+[editable path="Control/Equipment"]
