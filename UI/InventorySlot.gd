@@ -72,14 +72,16 @@ func drop_data(_pos,data):
 
 
 func _on_Icon_mouse_entered():
+	
 	var tool_tip_instance = tool_tip.instance()
 	tool_tip_instance.origin = "Inventory"
 	tool_tip_instance.slot = get_parent().get_name()
-	tool_tip_instance.rect_position = get_parent().get_global_transform_with_canvas().origin - Vector2(66,40)
+	tool_tip_instance.rect_position = get_parent().get_global_transform_with_canvas().origin - Vector2(27,40)
 	
 	add_child(tool_tip_instance)
 	yield(get_tree().create_timer(0.35), "timeout")
 	if has_node("Tooltip") and get_node("Tooltip").valid:
+		
 		get_node("Tooltip").show()
 	
 func _on_Icon_mouse_exited():

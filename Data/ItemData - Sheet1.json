@@ -10,7 +10,8 @@
     "Block": null,
     "PotionHealth": null,
     "PotionMana": null,
-    "FoodSatiation": null
+    "FoodSatiation": null,
+    "stackable" : "FALSE"
   },
   "10002": {
     "Name": "Common Sword",
@@ -23,7 +24,8 @@
     "Block": null,
     "PotionHealth": null,
     "PotionMana": null,
-    "FoodSatiation": null
+    "FoodSatiation": null,
+    "stackable" : "FALSE"
   },
   "10003": {
     "Name": "Epic Sword",
@@ -36,7 +38,8 @@
     "Block": null,
     "PotionHealth": null,
     "PotionMana": null,
-    "FoodSatiation": null
+    "FoodSatiation": null,
+    "stackable" : "FALSE"
   },
   "10004": {
     "Name": "Axe",
@@ -49,7 +52,8 @@
     "Block": null,
     "PotionHealth": null,
     "PotionMana": null,
-    "FoodSatiation": null
+    "FoodSatiation": null,
+    "stackable" : "FALSE"
   },
   "10005": {
     "Name": "Wooden Shield",
@@ -62,7 +66,8 @@
     "Block": 25,
     "PotionHealth": null,
     "PotionMana": null,
-    "FoodSatiation": null
+    "FoodSatiation": null,
+    "stackable" : "FALSE"
   },
   "10006": {
     "Name": "Healing Potion",
@@ -75,7 +80,8 @@
     "Block": null,
     "PotionHealth": 250,
     "PotionMana": null,
-    "FoodSatiation": null
+    "FoodSatiation": null,
+    "stackable" : "TRUE"
   },
   "10007": {
     "Name": "Mana Potion",
@@ -88,7 +94,8 @@
     "Block": null,
     "PotionHealth": null,
     "PotionMana": 500,
-    "FoodSatiation": null
+    "FoodSatiation": null,
+    "stackable" : "TRUE"
   },
   "10008": {
     "Name": "Bone Meat",
@@ -101,7 +108,8 @@
     "Block": null,
     "PotionHealth": null,
     "PotionMana": null,
-    "FoodSatiation": 68
+    "FoodSatiation": 68,
+    "stackable" : "TRUE"
   },
   "10009": {
     "Name": "Evil Helmet",
@@ -114,7 +122,8 @@
     "Block": null,
     "PotionHealth": null,
     "PotionMana": null,
-    "FoodSatiation": null
+    "FoodSatiation": null,
+    "stackable" : "FALSE"
   },
   "10010": {
     "Name": "Evil Chestplate",
@@ -127,6 +136,7 @@
     "Block": null,
     "PotionHealth": null,
     "PotionMana": null,
-    "FoodSatiation": null
+    "FoodSatiation": null,
+    "stackable" : "FALSE"
   }
 }

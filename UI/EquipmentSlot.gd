@@ -2,6 +2,9 @@ extends TextureRect
 
 onready var tool_tip = preload("res://UI/Tooltip.tscn")
 
+func _ready():
+	connect("mouse_entered",self,"_on_Icon_mouse_entered")
+	connect("mouse_exited",self,"_on_Icon_mouse_exited")
 func get_drag_data(_pos):
 	var equipment_slot = get_parent().get_name()
 	
@@ -59,3 +62,19 @@ func drop_data(_pos,data):
 
 	PlayerData.equipment_data[target_equipment_slot] = data["origin_item_id"]
 	texture = data["origin_texture"]
+
+func _on_Icon_mouse_entered():
+	
+	var tool_tip_instance = tool_tip.instance()
+	tool_tip_instance.origin = "Equipment"
+	tool_tip_instance.slot = get_parent().get_name()
+	tool_tip_instance.rect_position = get_parent().get_global_transform_with_canvas().origin - Vector2(27,40)
+	
+	add_child(tool_tip_instance)
+	yield(get_tree().create_timer(0.35), "timeout")
+	if has_node("Tooltip") and get_node("Tooltip").valid:
+		
+		get_node("Tooltip").show()
+	
+func _on_Icon_mouse_exited():
+	get_node("Tooltip").free()
