@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Kimama for jazzy.mp3-9f8bbbd39e295489bed4b7cd3f8a7ec4.mp3str"
+
+[deps]
+
+source_file="res://Music and Sounds/Otouta/Happy/Kimama for jazzy.mp3"
+dest_files=[ "res://.import/Kimama for jazzy.mp3-9f8bbbd39e295489bed4b7cd3f8a7ec4.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

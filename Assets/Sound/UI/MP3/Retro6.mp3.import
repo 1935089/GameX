@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Retro6.mp3-442a8467cd9087b6a9d26285240a5b68.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sound/UI/MP3/Retro6.mp3"
+dest_files=[ "res://.import/Retro6.mp3-442a8467cd9087b6a9d26285240a5b68.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

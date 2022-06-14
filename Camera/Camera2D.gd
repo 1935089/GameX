@@ -9,15 +9,3 @@ func _ready():
 	limit_left = topLeft.position.x
 	limit_bottom = bottomRight.position.y
 	limit_right = bottomRight.position.x
-
-
-
-
-
-
-func _on_World2_tree_entered():
-	GameManager.initialise_player()
-
-
-func _on_World_tree_entered():
-	GameManager.initialise_player()

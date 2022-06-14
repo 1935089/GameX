@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Asobi ba.mp3-bbe9c088846bf5e35e1347e675646170.mp3str"
+
+[deps]
+
+source_file="res://Music and Sounds/Aki/Happy/Asobi ba.mp3"
+dest_files=[ "res://.import/Asobi ba.mp3-bbe9c088846bf5e35e1347e675646170.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

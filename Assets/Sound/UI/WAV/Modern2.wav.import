@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Modern2.wav-23d4e733a4222426334b90a88915c40a.sample"
+
+[deps]
+
+source_file="res://Assets/Sound/UI/WAV/Modern2.wav"
+dest_files=[ "res://.import/Modern2.wav-23d4e733a4222426334b90a88915c40a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

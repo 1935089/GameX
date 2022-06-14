@@ -1,0 +1,176 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Font/Superwhite/SuperWhite.fnt" type="BitmapFont" id=1]
+[ext_resource path="res://UI/Menu/Settings.tres" type="Theme" id=2]
+[ext_resource path="res://Game/Customization.gd" type="Script" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="Theme" id=3]
+LineEdit/colors/clear_button_color = Color( 0.88, 0.88, 0.88, 1 )
+LineEdit/colors/clear_button_color_pressed = Color( 1, 1, 1, 1 )
+LineEdit/colors/cursor_color = Color( 0.94, 0.94, 0.94, 1 )
+LineEdit/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+LineEdit/colors/font_color_selected = Color( 0, 0, 0, 1 )
+LineEdit/colors/font_color_uneditable = Color( 0.88, 0.88, 0.88, 0.5 )
+LineEdit/colors/selection_color = Color( 0.49, 0.49, 0.49, 1 )
+LineEdit/constants/minimum_spaces = 12
+LineEdit/fonts/font = ExtResource( 1 )
+LineEdit/icons/clear = null
+LineEdit/styles/focus = SubResource( 2 )
+LineEdit/styles/normal = SubResource( 2 )
+LineEdit/styles/read_only = SubResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0, 0, 0, 1 )
+border_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 1, 1, 1, 1 )
+
+[node name="Customization" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+script = ExtResource( 3 )
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="Name" type="LineEdit" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -32.5
+margin_top = -57.0
+margin_right = 32.5
+margin_bottom = -33.0
+theme = SubResource( 3 )
+align = 1
+placeholder_text = "username"
+caret_blink = true
+
+[node name="Change" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -26.0
+margin_top = -17.0
+margin_right = 26.0
+margin_bottom = -4.0
+text = "Change it"
+
+[node name="Question" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -159.0
+margin_top = 12.0
+margin_right = 159.0
+margin_bottom = 39.0
+custom_styles/normal = SubResource( 4 )
+align = 1
+autowrap = true
+
+[node name="Keep" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -40.0
+margin_top = -6.5
+margin_right = 40.0
+margin_bottom = 6.5
+text = "Keep my name"
+
+[node name="Error" type="Label" parent="."]
+visible = false
+margin_left = 202.0
+margin_top = 128.0
+margin_right = 310.0
+margin_bottom = 139.0
+text = "Username too short"
+
+[node name="Popup" type="Popup" parent="."]
+visible = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+
+[node name="Panel" type="Panel" parent="Popup"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -105.0
+margin_top = -44.5
+margin_right = 105.0
+margin_bottom = 44.5
+custom_styles/panel = SubResource( 5 )
+
+[node name="Sure" type="Label" parent="Popup/Panel"]
+anchor_right = 1.0
+margin_left = 1.0
+margin_top = 1.0
+margin_right = -1.0
+margin_bottom = 24.0
+autowrap = true
+
+[node name="Yes" type="Button" parent="Popup/Panel"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -65.0
+margin_top = 3.5
+margin_right = -25.0
+margin_bottom = 16.5
+text = "yes"
+
+[node name="No" type="Button" parent="Popup/Panel"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 25.0
+margin_top = 3.5
+margin_right = 65.0
+margin_bottom = 16.5
+text = "no"
+
+[node name="Back" type="Button" parent="."]
+margin_top = 167.0
+margin_right = 40.0
+margin_bottom = 180.0
+text = "Back"
+
+[connection signal="pressed" from="Change" to="." method="_on_Change_pressed"]
+[connection signal="pressed" from="Keep" to="." method="_on_Keep_pressed"]
+[connection signal="pressed" from="Popup/Panel/Yes" to="." method="_on_Yes_pressed"]
+[connection signal="pressed" from="Popup/Panel/No" to="." method="_on_No_pressed"]
+[connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]

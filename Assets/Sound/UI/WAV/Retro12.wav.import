@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Retro12.wav-3ff3aae40de2f377851c5c381c5d32db.sample"
+
+[deps]
+
+source_file="res://Assets/Sound/UI/WAV/Retro12.wav"
+dest_files=[ "res://.import/Retro12.wav-3ff3aae40de2f377851c5c381c5d32db.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

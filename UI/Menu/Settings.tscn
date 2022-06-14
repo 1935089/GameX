@@ -1,0 +1,153 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Font/Superwhite/SuperWhite.fnt" type="BitmapFont" id=1]
+[ext_resource path="res://UI/Menu/Settings.gd" type="Script" id=2]
+[ext_resource path="res://UI/Menu/Settings.tres" type="Theme" id=3]
+[ext_resource path="res://UI/Menu/Images/Quit.png" type="Texture" id=4]
+
+[node name="Menu" type="Popup"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_scale = Vector2( 0.994908, 0.868465 )
+theme = ExtResource( 3 )
+script = ExtResource( 2 )
+
+[node name="TabContainer" type="TabContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -55.413
+margin_top = -25.5
+margin_right = 89.587
+margin_bottom = 25.5
+rect_scale = Vector2( 0.764754, 0.781241 )
+custom_fonts/font = ExtResource( 1 )
+tab_align = 2
+
+[node name="Video" type="GridContainer" parent="TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_top = 13.0
+margin_right = -1.0
+margin_bottom = -1.0
+columns = 2
+
+[node name="LabelDisplay" type="Label" parent="TabContainer/Video"]
+margin_right = 46.0
+margin_bottom = 11.0
+custom_fonts/font = ExtResource( 1 )
+text = "Display :"
+
+[node name="OptionButtonVideo" type="OptionButton" parent="TabContainer/Video"]
+margin_left = 50.0
+margin_right = 126.0
+margin_bottom = 11.0
+custom_fonts/font = ExtResource( 1 )
+text = "Fullscreen"
+align = 2
+items = [ "Fullscreen", null, false, 0, null, "Borderless", null, false, 1, null ]
+selected = 0
+
+[node name="Audio" type="GridContainer" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 24.0
+margin_right = -4.0
+margin_bottom = -4.0
+columns = 2
+
+[node name="LabelMaster" type="Label" parent="TabContainer/Audio"]
+margin_right = 80.0
+margin_bottom = 11.0
+custom_fonts/font = ExtResource( 1 )
+text = "Master Volume"
+
+[node name="HSliderMaster" type="HSlider" parent="TabContainer/Audio"]
+margin_left = 84.0
+margin_right = 144.0
+margin_bottom = 11.0
+rect_min_size = Vector2( 56, 10 )
+size_flags_vertical = 1
+min_value = -50.0
+max_value = 0.0
+value = -15.0
+rounded = true
+
+[node name="LabelMusic" type="Label" parent="TabContainer/Audio"]
+margin_top = 15.0
+margin_right = 80.0
+margin_bottom = 26.0
+custom_fonts/font = ExtResource( 1 )
+text = "Music Volume"
+
+[node name="HSliderMusic" type="HSlider" parent="TabContainer/Audio"]
+margin_left = 84.0
+margin_top = 15.0
+margin_right = 144.0
+margin_bottom = 26.0
+rect_min_size = Vector2( 60, 10 )
+size_flags_vertical = 1
+min_value = -50.0
+max_value = 0.0
+value = -15.0
+rounded = true
+
+[node name="LabelSound" type="Label" parent="TabContainer/Audio"]
+margin_top = 30.0
+margin_right = 80.0
+margin_bottom = 41.0
+custom_fonts/font = ExtResource( 1 )
+text = "Sound Volume"
+
+[node name="HSliderSound" type="HSlider" parent="TabContainer/Audio"]
+margin_left = 84.0
+margin_top = 30.0
+margin_right = 144.0
+margin_bottom = 41.0
+rect_min_size = Vector2( 60, 10 )
+size_flags_vertical = 1
+min_value = -50.0
+max_value = 0.0
+value = -15.0
+rounded = true
+
+[node name="CloseButton" type="Panel" parent="."]
+pause_mode = 2
+margin_left = 215.887
+margin_top = 65.164
+margin_right = 255.887
+margin_bottom = 105.164
+rect_scale = Vector2( 0.202573, 0.231524 )
+
+[node name="TextureButtonQuit" type="TextureButton" parent="CloseButton"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -0.378174
+margin_top = 0.234222
+margin_right = -0.378128
+margin_bottom = 0.234222
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 4 )
+texture_disabled = ExtResource( 4 )
+texture_focused = ExtResource( 4 )
+expand = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_left = 216.1
+margin_top = 73.6932
+margin_right = 322.1
+margin_bottom = 113.693
+
+[connection signal="item_selected" from="TabContainer/Video/OptionButtonVideo" to="." method="_on_OptionButtonVideo_item_selected"]
+[connection signal="toggled" from="TabContainer/Video/OptionButtonVideo" to="." method="_on_OptionButtonVideo_toggled"]
+[connection signal="value_changed" from="TabContainer/Audio/HSliderMaster" to="." method="_on_HSliderMaster_value_changed"]
+[connection signal="value_changed" from="TabContainer/Audio/HSliderMusic" to="." method="_on_HSliderMusic_value_changed"]
+[connection signal="value_changed" from="TabContainer/Audio/HSliderSound" to="." method="_on_HSliderSound_value_changed"]
+[connection signal="pressed" from="CloseButton/TextureButtonQuit" to="." method="_on_TextureButtonQuit_pressed"]

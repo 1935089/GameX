@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://UI/Energy/EnergyUI.tscn" type="PackedScene" id=1]
+[ext_resource path="res://UI/Health/HealthUI.tscn" type="PackedScene" id=2]
+[ext_resource path="res://UI/Hotbar/Hotbar.tscn" type="PackedScene" id=3]
+[ext_resource path="res://UI/Inventory/UICanvasLayer.gd" type="Script" id=4]
+[ext_resource path="res://UI/Inventory/Inventory.tscn" type="PackedScene" id=6]
+[ext_resource path="res://UI/Inventory/Equipment.tscn" type="PackedScene" id=7]
+[ext_resource path="res://UI/Inventory/Tooltip.tscn" type="PackedScene" id=8]
+[ext_resource path="res://UI/Menu/EscapeMenu.tscn" type="PackedScene" id=9]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+pause_mode = 2
+script = ExtResource( 4 )
+
+[node name="HealthUI" parent="." instance=ExtResource( 2 )]
+mouse_filter = 2
+
+[node name="Energy" parent="." instance=ExtResource( 1 )]
+margin_top = 16.0
+margin_bottom = 56.0
+mouse_filter = 2
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="UISF" type="AudioStreamPlayer" parent="Control"]
+bus = "Sound"
+
+[node name="Inventory" parent="Control" instance=ExtResource( 6 )]
+visible = false
+margin_top = 44.0
+margin_bottom = 116.0
+
+[node name="Equipment" parent="Control" instance=ExtResource( 7 )]
+visible = false
+margin_top = 56.0
+margin_bottom = 111.0
+
+[node name="Hotbar" parent="Control" instance=ExtResource( 3 )]
+
+[node name="Popup" parent="." instance=ExtResource( 8 )]
+visible = false
+
+[node name="Menu" parent="." instance=ExtResource( 9 )]
+
+[node name="Buttons" parent="Menu" index="1"]
+margin_left = 12.0
+margin_top = -34.0
+margin_right = 75.0
+margin_bottom = -4.0
+
+[editable path="Control/Inventory"]
+[editable path="Control/Equipment"]
+[editable path="Control/Hotbar"]
+[editable path="Popup"]
+[editable path="Menu"]
+[editable path="Menu/Menu"]

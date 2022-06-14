@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Minimalist6.ogg-c3ebf9b95b0930f48ca4a0ea8d23b434.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sound/UI/OGG/Minimalist6.ogg"
+dest_files=[ "res://.import/Minimalist6.ogg-c3ebf9b95b0930f48ca4a0ea8d23b434.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

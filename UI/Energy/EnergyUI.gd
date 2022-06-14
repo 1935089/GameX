@@ -1,7 +1,7 @@
 extends Control
 
 var energy = 4 setget set_energy
-var max_energy = 4 setget set_max_energy
+var max_energy = 4 setget self_max_energy
 
 onready var energyUIFull = $EnergyUIFull
 onready var energyUIEmpty = $EnergyUIEmpty
@@ -14,7 +14,7 @@ func set_energy(value):
 	if energyUIFull != null:
 		energyUIFull.rect_size.x = energy * 15 #pcq les energy sont 15px wide
 		
-func set_max_energy(value):
+func self_max_energy(value):
 	max_energy = max(value, 1)
 	self.energy = min(energy,max_energy)
 	if energyUIEmpty != null:

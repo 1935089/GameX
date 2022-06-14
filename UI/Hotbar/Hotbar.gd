@@ -1,51 +1,81 @@
 extends Control
 
-onready var texture1 = $"1/Texture1"
-onready var texture2 = $"2/Texture2"
-onready var texture3 = $"3/Texture3"
-onready var texture4 = $"4/Texture4"
-onready var texture5 = $"5/Texture5"
-onready var texture11Inv = $"Inventory/11/Texture11"
+
+
+onready var icon1 = $"HBoxContainer/1/Icon"
+onready var icon2 = $"HBoxContainer/2/Icon"
+onready var icon3 = $"HBoxContainer/3/Icon"
+onready var icon4 = $"HBoxContainer/4/Icon"
+onready var icon5 = $"HBoxContainer/5/Icon"
+
+onready var stack1 = $"HBoxContainer/1/Stack"
+onready var stack2 = $"HBoxContainer/2/Stack"
+onready var stack3 = $"HBoxContainer/3/Stack"
+onready var stack4 = $"HBoxContainer/4/Stack"
+onready var stack5 = $"HBoxContainer/5/Stack"
+
+onready var bg1 = $"HBoxContainer/1/TextureSelected"
+onready var bg2 = $"HBoxContainer/2/TextureSelected"
+onready var bg3 = $"HBoxContainer/3/TextureSelected"
+onready var bg4 = $"HBoxContainer/4/TextureSelected"
+onready var bg5 = $"HBoxContainer/5/TextureSelected"
 
 
 
-onready var label1 = $"1/Label1"
-onready var label2 = $"2/Label2"
-onready var label3 = $"3/Label3" 
-onready var label4 = $"4/Label4"
-onready var label5 = $"5/Label5"
-
-
-
-var labels = []
-var textures = []
-
-var i = 0
-
+var icons= []
+var stacks = []
+var bgs = []
 func _ready():
 	
+	icons= [icon1,icon2,icon3,icon4,icon5]
+	stacks = [stack1,stack2,stack3,stack4,stack5]
+	bgs = [bg1,bg2,bg3,bg4,bg5]
 # warning-ignore:return_value_discarded
-	GameManager.connect("player_initialised", self, "_on_player_initialised")
-	
-	labels = [
-	label1,label2,label3,label4,label5
-	]
-	textures = [
-	texture1, texture2, texture3, texture4,texture5
-	]
+	AddItem.connect("hotbar_changed", self, "load_hotbar")
+	load_hotbar()
+# warning-ignore:return_value_discarded
+	PlayerData.connect("active_item_updated", self, "selected_slot")
+		
 
-func _on_player_initialised(player):
-		
-		player.inventory.connect("inventory_changed",self,"_on_player_inventory_changed")
-		
-func _on_player_inventory_changed(inventory):
+func load_hotbar():
+	selected_slot()
+	var count = 0
 	
-	
-	for item in inventory.get_items():		
-		if i < labels.size():
-			textures[i].texture = inventory.get_item(i).texture
-			labels[i].text = " x%d" % [inventory.get_item(i).quantity]
-		else:
+	for i in PlayerData.hotbar_data:
+		
+		
+		if PlayerData.hotbar_data[i]["Item"] != null:
+			
+			var item_name = GameData.item_data[str(PlayerData.hotbar_data[i]["Item"])]["Name"]
+			
+			var file_name = GameData.item_data[str(PlayerData.hotbar_data[i]["Item"])]["File"]
+			var icon_texture = load("res://Assets/Icon_Items/"+file_name +"/"+ item_name + ".png")
+			icons[count].set_texture(icon_texture)
+			
+			var item_stack = PlayerData.hotbar_data[i]["Stack"]
+			
+			if item_stack != null and item_stack >= 1 and GameData.item_data[str(PlayerData.hotbar_data[i]["Item"])]["Stackable"] == true:
 				
-			break
-	i += 1
+				stacks[count].set_text(str(item_stack))
+				
+		if PlayerData.hotbar_data[i]["Stack"] == 0:
+			PlayerData.hotbar_data[i]["Item"] = null
+			PlayerData.hotbar_data[i]["Stack"] = null
+			icons[count].set_texture(null)
+			stacks[count].set_text("")
+		count += 1
+			
+func selected_slot():
+	
+	var selected_slot_only = bgs.slice(0,6)
+	
+	selected_slot_only.remove(PlayerData.active_item_slot)
+	
+	bgs[PlayerData.active_item_slot].visible = true
+
+	for i in selected_slot_only.size():
+		selected_slot_only[i].visible = false
+		
+	if PlayerData.hotbar_data[str(PlayerData.active_item_slot + 1)]["Item"] != null:
+		PlayerData.held_item = PlayerData.hotbar_data[str(PlayerData.active_item_slot + 1)]["Item"]
+

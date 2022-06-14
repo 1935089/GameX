@@ -1,0 +1,70 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Font/Superwhite/SuperWhite.fnt" type="BitmapFont" id=1]
+[ext_resource path="res://UI/Menu/StartMenu.gd" type="Script" id=2]
+[ext_resource path="res://UI/Menu/Settings.tscn" type="PackedScene" id=3]
+[ext_resource path="res://UI/Menu/Settings.tres" type="Theme" id=4]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 1, 1, 1, 1 )
+
+[node name="StartMenu" type="Control"]
+theme = ExtResource( 4 )
+script = ExtResource( 2 )
+
+[node name="Panel" type="Panel" parent="."]
+margin_right = 320.0
+margin_bottom = 180.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 109.0
+margin_right = 67.0
+margin_bottom = 177.0
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+margin_right = 63.0
+margin_bottom = 13.0
+custom_fonts/font = ExtResource( 1 )
+text = "Start"
+
+[node name="OptionsButton" type="Button" parent="VBoxContainer"]
+margin_top = 17.0
+margin_right = 63.0
+margin_bottom = 30.0
+custom_fonts/font = ExtResource( 1 )
+text = "Options"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+margin_top = 34.0
+margin_right = 63.0
+margin_bottom = 47.0
+custom_fonts/font = ExtResource( 1 )
+text = "Quit"
+
+[node name="CreditsButton" type="Button" parent="VBoxContainer"]
+margin_top = 51.0
+margin_right = 63.0
+margin_bottom = 64.0
+text = "Credits"
+
+[node name="Menu" parent="." instance=ExtResource( 3 )]
+pause_mode = 0
+
+[node name="OptionButtonVideo" parent="Menu/TabContainer/Video" index="1"]
+items = [ "Fullscreen", null, false, 0, null, "Borderless", null, false, 1, null ]
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_OptionsButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/CreditsButton" to="." method="_on_CreditsButton_pressed"]
+
+[editable path="Menu"]

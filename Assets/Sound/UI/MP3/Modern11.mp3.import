@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Modern11.mp3-5ca8b2c550dca72957ac1b52786e83ed.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sound/UI/MP3/Modern11.mp3"
+dest_files=[ "res://.import/Modern11.mp3-5ca8b2c550dca72957ac1b52786e83ed.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Yuami.mp3-64b395b20ddcaba25ce3cc8e512026d1.mp3str"
+
+[deps]
+
+source_file="res://Music and Sounds/R-Side/Happy/Yuami.mp3"
+dest_files=[ "res://.import/Yuami.mp3-64b395b20ddcaba25ce3cc8e512026d1.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

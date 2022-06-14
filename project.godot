@@ -8,36 +8,22 @@
 
 config_version=4
 
-_global_script_classes=[ {
-"base": "Resource",
-"class": "Inventory",
-"language": "GDScript",
-"path": "res://Inventory/Inventory.gd"
-}, {
-"base": "Resource",
-"class": "ItemResource",
-"language": "GDScript",
-"path": "res://Item.gd"
-} ]
-_global_script_class_icons={
-"Inventory": "",
-"ItemResource": ""
-}
-
 [application]
 
 config/name="GameX"
-run/main_scene="res://Game/World.tscn"
+run/main_scene="res://UI/Menu/StartMenu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
-GameManager="*res://Managers/GameManager.gd"
-ItemDatabase="*res://Managers/ItemDatabase.gd"
-PlayerStats="*res://Player/PlayerStats.tscn"
-Global="*res://Global.gd"
-GameData="*res://Singletons/GameData.gd"
 PlayerData="*res://Singletons/PlayerData.gd"
+PlayerStats="*res://Player/PlayerStats.tscn"
+Global="*res://Singletons/Global.gd"
+GameData="*res://Singletons/GameData.gd"
+Settings="*res://Singletons/Settings.gd"
+GlobalSettings="*res://Singletons/GlobalSettings.gd"
+Music="*res://Singletons/Music/Music.tscn"
+AddItem="*res://Drops/add_item.gd"
 
 [display]
 
@@ -45,15 +31,12 @@ window/size/width=320
 window/size/height=180
 window/size/test_width=1280
 window/size/test_height=720
+mouse_cursor/custom_image="res://UI/Cursor.png"
 window/stretch/mode="2d"
 
 [global]
 
 font=false
-
-[gui]
-
-theme/custom_font="res://Font/m5x7.ttf"
 
 [input]
 
@@ -108,6 +91,16 @@ scroll_up={
 scroll_down={
 "deadzone": 0.5,
 "events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":5,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+interact={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":82,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+settings={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777217,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
 

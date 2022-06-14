@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Walk in Oshare city.mp3-268228891bad9a82709b8fe70e4e7d9e.mp3str"
+
+[deps]
+
+source_file="res://Music and Sounds/Otouta/Happy/Walk in Oshare city.mp3"
+dest_files=[ "res://.import/Walk in Oshare city.mp3-268228891bad9a82709b8fe70e4e7d9e.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

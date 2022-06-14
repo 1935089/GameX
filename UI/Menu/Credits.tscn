@@ -1,0 +1,179 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Font/Superwhite/SuperWhite.fnt" type="BitmapFont" id=1]
+[ext_resource path="res://Assets/Small images/hurtrecord.png" type="Texture" id=2]
+[ext_resource path="res://UI/Menu/Credits.gd" type="Script" id=3]
+
+[sub_resource type="Theme" id=5]
+Label/colors/font_color = Color( 1, 1, 1, 1 )
+Label/colors/font_color_shadow = Color( 0, 0, 0, 0 )
+Label/colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+Label/constants/line_spacing = 3
+Label/constants/shadow_as_outline = 0
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/fonts/font = ExtResource( 1 )
+Label/styles/normal = null
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="Theme" id=2]
+Panel/styles/panel = SubResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 1, 0, 0, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="Theme" id=4]
+Button/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+Button/colors/font_color_focus = Color( 0.94, 0.94, 0.94, 1 )
+Button/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
+Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+Button/constants/hseparation = 2
+Button/fonts/font = null
+Button/styles/disabled = null
+Button/styles/focus = null
+Button/styles/hover = SubResource( 3 )
+Button/styles/normal = null
+Button/styles/pressed = null
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="Theme" id=7]
+Button/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+Button/colors/font_color_focus = Color( 0.94, 0.94, 0.94, 1 )
+Button/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
+Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+Button/constants/hseparation = 2
+Button/fonts/font = ExtResource( 1 )
+Button/styles/disabled = SubResource( 6 )
+Button/styles/focus = SubResource( 6 )
+Button/styles/hover = SubResource( 6 )
+Button/styles/normal = SubResource( 6 )
+Button/styles/pressed = SubResource( 6 )
+
+[node name="Credits" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = SubResource( 5 )
+script = ExtResource( 3 )
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = SubResource( 2 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 140.0
+margin_top = 83.0
+margin_right = 170.0
+margin_bottom = 94.0
+custom_fonts/font = ExtResource( 1 )
+text = "Music"
+
+[node name="TextureButton" type="TextureButton" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 72.0
+margin_top = -84.0
+margin_right = 293.0
+margin_bottom = -2.0
+rect_scale = Vector2( 0.326972, 0.35206 )
+theme = SubResource( 4 )
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 2 )
+texture_hover = ExtResource( 2 )
+texture_disabled = ExtResource( 2 )
+texture_focused = ExtResource( 2 )
+expand = true
+
+[node name="Aki" type="Label" parent="."]
+margin_left = 64.0
+margin_top = 128.0
+margin_right = 85.0
+margin_bottom = 142.0
+text = "Aki"
+
+[node name="Basement" type="Label" parent="."]
+margin_left = 88.0
+margin_top = 128.0
+margin_right = 109.0
+margin_bottom = 142.0
+text = "Basement"
+
+[node name="Ky" type="Label" parent="."]
+margin_left = 144.0
+margin_top = 128.0
+margin_right = 165.0
+margin_bottom = 142.0
+text = "Ky"
+
+[node name="L-Side" type="Label" parent="."]
+margin_left = 168.0
+margin_top = 128.0
+margin_right = 202.0
+margin_bottom = 142.0
+text = "L-Side"
+
+[node name="Outa" type="Label" parent="."]
+margin_left = 208.0
+margin_top = 128.0
+margin_right = 239.0
+margin_bottom = 142.0
+text = "Outa"
+
+[node name="R-Side" type="Label" parent="."]
+margin_left = 64.0
+margin_top = 144.0
+margin_right = 99.0
+margin_bottom = 169.0
+text = "R-Side
+"
+
+[node name="GameX" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -24.0
+margin_top = 32.0
+margin_right = 16.0
+margin_bottom = 43.0
+text = "GameX"
+
+[node name="Chopin" type="Label" parent="GameX"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -24.0
+margin_top = 16.0
+margin_right = 29.0
+margin_bottom = 27.0
+text = "By Chopin"
+
+[node name="Button" type="Button" parent="."]
+margin_left = 8.0
+margin_top = 152.0
+margin_right = 35.0
+margin_bottom = 172.0
+theme = SubResource( 7 )
+text = "Back"
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

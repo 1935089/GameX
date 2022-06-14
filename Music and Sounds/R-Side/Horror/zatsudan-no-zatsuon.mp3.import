@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/zatsudan-no-zatsuon.mp3-06c0d728717d66d4f84351f5bd8639b8.mp3str"
+
+[deps]
+
+source_file="res://Music and Sounds/R-Side/Horror/zatsudan-no-zatsuon.mp3"
+dest_files=[ "res://.import/zatsudan-no-zatsuon.mp3-06c0d728717d66d4f84351f5bd8639b8.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

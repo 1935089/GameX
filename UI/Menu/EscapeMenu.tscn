@@ -1,0 +1,106 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Font/Superwhite/SuperWhite.fnt" type="BitmapFont" id=1]
+[ext_resource path="res://UI/Menu/Settings.tres" type="Theme" id=2]
+[ext_resource path="res://UI/Menu/Settings.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/Small images/music note.png" type="Texture" id=4]
+[ext_resource path="res://UI/Menu/EscapeMenu.gd" type="Script" id=5]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="Theme" id=2]
+Label/colors/font_color = Color( 1, 1, 1, 1 )
+Label/colors/font_color_shadow = Color( 0, 0, 0, 0 )
+Label/colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+Label/constants/line_spacing = 3
+Label/constants/shadow_as_outline = 0
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/fonts/font = ExtResource( 1 )
+Label/styles/normal = SubResource( 1 )
+
+[node name="EscapeMenu" type="Popup"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+script = ExtResource( 5 )
+
+[node name="Music" type="Label" parent="."]
+margin_left = 12.0
+margin_top = 123.0
+margin_right = 75.0
+margin_bottom = 137.0
+rect_min_size = Vector2( 0, 13 )
+theme = SubResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="Music"]
+margin_top = 1.0
+margin_right = 7.0
+margin_bottom = 6.0
+rect_scale = Vector2( 1.98224, 2.37994 )
+texture = ExtResource( 4 )
+expand = true
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+pause_mode = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = -36.0
+margin_right = 71.0
+margin_bottom = 32.0
+theme = ExtResource( 2 )
+
+[node name="SaveButton" type="Button" parent="Buttons"]
+margin_right = 63.0
+margin_bottom = 13.0
+custom_fonts/font = ExtResource( 1 )
+text = "Save"
+
+[node name="QuitButton" type="Button" parent="Buttons"]
+margin_top = 17.0
+margin_right = 63.0
+margin_bottom = 30.0
+custom_fonts/font = ExtResource( 1 )
+text = "Quit"
+
+[node name="Menu" parent="." instance=ExtResource( 3 )]
+visible = true
+margin_top = 28.0
+margin_bottom = -37.0
+
+[node name="CloseButton" parent="Menu" index="1"]
+margin_left = 216.1
+margin_top = 31.0893
+margin_right = 256.1
+margin_bottom = 71.0898
+
+[node name="Saved" type="RichTextLabel" parent="."]
+visible = false
+margin_left = 79.0
+margin_top = 136.0
+margin_right = 150.0
+margin_bottom = 173.0
+custom_fonts/mono_font = ExtResource( 1 )
+custom_fonts/normal_font = ExtResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[wave]
+Game saved[/wave]"
+text = "
+Game saved"
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="about_to_show" from="." to="." method="_on_EscapeMenu_about_to_show"]
+[connection signal="pressed" from="Buttons/SaveButton" to="." method="_on_SaveButton_pressed"]
+[connection signal="pressed" from="Buttons/QuitButton" to="." method="_on_QuitButton_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+
+[editable path="Menu"]

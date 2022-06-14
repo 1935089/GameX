@@ -2,6 +2,8 @@ extends KinematicBody2D
 
 
 const EnemyDeathEffect = preload("res://Effects/EnemyDeathEffect.tscn")
+const PotionDrop = preload("res://Drops/PotionDrop.tscn")
+
 
 export var ACCELERATION = 300
 export var MAX_SPEED = 50
@@ -28,7 +30,9 @@ onready var softCollision = $SoftCollision
 onready var wandererController = $WanderController
 onready var animationPlayer = $AnimationPlayer
 
+
 func _ready():
+	randomize()
 	state = pick_random_state([IDLE,WANDER])
 	animationPlayer.play("Stop")
 func _physics_process(delta):
@@ -93,7 +97,16 @@ func _on_Stats_no_health():
 	var enemyDeathEffect = EnemyDeathEffect.instance()
 	get_parent().add_child(enemyDeathEffect)
 	enemyDeathEffect.global_position = global_position
-
+	
+	var percent = randf()
+	if (percent < 0.7):
+		var itemDrop = PotionDrop.instance()
+		get_parent().call_deferred("add_child",itemDrop)
+		itemDrop.global_position = global_position
+		
+		
+	
+	
 func _on_Hurtbox_invincibility_started():
 	animationPlayer.play("Start")
 

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Sound of earth.mp3-967b9f97c0bfe9b24445ded5e9d87604.mp3str"
+
+[deps]
+
+source_file="res://Music and Sounds/Otouta/Happy/Sound of earth.mp3"
+dest_files=[ "res://.import/Sound of earth.mp3-967b9f97c0bfe9b24445ded5e9d87604.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

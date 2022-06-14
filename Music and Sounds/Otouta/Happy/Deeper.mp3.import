@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Deeper.mp3-011477f0fa2bd39540a4d52ec2883efa.mp3str"
+
+[deps]
+
+source_file="res://Music and Sounds/Otouta/Happy/Deeper.mp3"
+dest_files=[ "res://.import/Deeper.mp3-011477f0fa2bd39540a4d52ec2883efa.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -20,13 +20,13 @@ func set_invincible(value):
 func start_invincibilty(duration):
 	self.invincible = true
 	timer.start(duration)
-
+	
 func create_hit_effect():
 	var effect = HitEffect.instance()
 	var main = get_tree().current_scene
 	main.add_child(effect)
 	effect.global_position = global_position
-
+	
 
 
 func _on_Timer_timeout():

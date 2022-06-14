@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Nanashi no comedian.mp3-cbfa4e2253b6ad30f4161997f5834167.mp3str"
+
+[deps]
+
+source_file="res://Music and Sounds/L-Side/Happy/Nanashi no comedian.mp3"
+dest_files=[ "res://.import/Nanashi no comedian.mp3-cbfa4e2253b6ad30f4161997f5834167.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

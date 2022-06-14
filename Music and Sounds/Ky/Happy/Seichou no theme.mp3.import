@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Seichou no theme.mp3-e5be42b02bada8d1222760e48537011d.mp3str"
+
+[deps]
+
+source_file="res://Music and Sounds/Ky/Happy/Seichou no theme.mp3"
+dest_files=[ "res://.import/Seichou no theme.mp3-e5be42b02bada8d1222760e48537011d.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

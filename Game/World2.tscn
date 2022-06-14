@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Game/Grass.tscn" type="PackedScene" id=1]
 [ext_resource path="res://World/GrassBackground.png" type="Texture" id=2]
@@ -6,8 +6,9 @@
 [ext_resource path="res://Game/Portal.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Camera/Camera2D.tscn" type="PackedScene" id=6]
-[ext_resource path="res://UI/UICanvasLayer.tscn" type="PackedScene" id=7]
+[ext_resource path="res://UI/Inventory/UICanvasLayer.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Drops/PotionDrop.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Game/World2.gd" type="Script" id=9]
 [ext_resource path="res://Game/Tree.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Game/Bush.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Enemies/Bat.tscn" type="PackedScene" id=12]
@@ -37,10 +38,11 @@
 0/shapes = [  ]
 0/z_index = 0
 
-[node name="World2" type="Node2D"]
+[node name="World2" type="Node2D" groups=["Persist"]]
+script = ExtResource( 9 )
 
 [node name="Camera2D" parent="." instance=ExtResource( 6 )]
-position = Vector2( 160, 120 )
+position = Vector2( 168, -3 )
 
 [node name="TopLeft" parent="Camera2D/Limits" index="0"]
 position = Vector2( -64, 0 )
@@ -73,9 +75,9 @@ position = Vector2( 88, 64 )
 position = Vector2( 192, 80 )
 
 [node name="Portal" parent="." instance=ExtResource( 4 )]
-position = Vector2( 8, -242 )
+position = Vector2( 10, -257 )
 next_scene_path = "res://Game/World.tscn"
-player_spawn_location = Vector2( 160, 248 )
+player_spawn_location = Vector2( 159, 248 )
 player_direction = Vector2( 0, -1 )
 
 [node name="ItemDrop" parent="." instance=ExtResource( 8 )]
@@ -84,7 +86,8 @@ position = Vector2( 72, 112 )
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Player" parent="YSort" instance=ExtResource( 5 )]
-position = Vector2( 160, 120 )
+position = Vector2( 168, -3 )
+player_spawn_location = Vector2( 158, 19 )
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Player"]
 remote_path = NodePath("../../../Camera2D")
@@ -112,7 +115,7 @@ position = Vector2( 72, 48 )
 position = Vector2( 208, 48 )
 
 [node name="Grass3" parent="YSort/Grass" instance=ExtResource( 1 )]
-position = Vector2( 160, 24 )
+position = Vector2( 94, 35 )
 
 [node name="Grass4" parent="YSort/Grass" instance=ExtResource( 1 )]
 position = Vector2( 248, 24 )
@@ -147,10 +150,17 @@ position = Vector2( 32, 128 )
 
 [node name="Items" type="YSort" parent="YSort"]
 
-[node name="ItemDrop" parent="YSort/Items" instance=ExtResource( 8 )]
+[node name="Potion" parent="YSort/Items" instance=ExtResource( 8 )]
 position = Vector2( 16, 144 )
-
-[connection signal="tree_entered" from="." to="Camera2D" method="_on_World2_tree_entered"]
 
 [editable path="Camera2D"]
 [editable path="CanvasLayer"]
+[editable path="CanvasLayer/Control/Inventory"]
+[editable path="CanvasLayer/Control/Equipment"]
+[editable path="CanvasLayer/Control/Hotbar"]
+[editable path="CanvasLayer/Popup"]
+[editable path="CanvasLayer/Menu"]
+[editable path="CanvasLayer/Menu/Menu"]
+[editable path="YSort/Items/Potion"]
+[editable path="YSort/Items/Potion/PlayerDetectionZone"]
+[editable path="YSort/Items/Potion/SoftCollision"]

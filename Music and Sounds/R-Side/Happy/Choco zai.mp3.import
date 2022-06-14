@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Choco zai.mp3-f202495ac71c1a4fd6c053e8b7ad806f.mp3str"
+
+[deps]
+
+source_file="res://Music and Sounds/R-Side/Happy/Choco zai.mp3"
+dest_files=[ "res://.import/Choco zai.mp3-f202495ac71c1a4fd6c053e8b7ad806f.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

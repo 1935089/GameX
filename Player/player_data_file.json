@@ -1,0 +1,12 @@
+{
+	"Player": {
+		"Username": null,
+		"HP": 4,
+		"Max_HP": 4,
+		"Max_Energy": 4,
+		"Energy": 4,
+		"World": null,
+		"Position_x": null,
+		"Position_y": null
+	}
+}

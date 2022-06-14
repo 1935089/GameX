@@ -4,7 +4,7 @@
 [ext_resource path="res://Shadows/SmallShadow.png" type="Texture" id=2]
 [ext_resource path="res://Enemies/Bat.gd" type="Script" id=3]
 [ext_resource path="res://Overlap/Hurtbox.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Stats.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Singletons/Stats.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Enemies/PlayerDetectionZone.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Overlap/Hitbox.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Overlap/SoftCollision.tscn" type="PackedScene" id=8]
@@ -113,7 +113,7 @@ collision_layer = 8
 script = ExtResource( 3 )
 
 [node name="Stats" parent="." instance=ExtResource( 5 )]
-max_health = 4
+max_health = 10
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 material = SubResource( 12 )

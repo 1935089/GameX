@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Sha la la.mp3-03623a955b0aa44c0622cd314729e2e6.mp3str"
+
+[deps]
+
+source_file="res://Music and Sounds/Otouta/Happy/Sha la la.mp3"
+dest_files=[ "res://.import/Sha la la.mp3-03623a955b0aa44c0622cd314729e2e6.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

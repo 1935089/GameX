@@ -1,0 +1,33 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Music and Sounds/Otouta/Happy/Sha la la.mp3" type="AudioStream" id=1]
+[ext_resource path="res://Singletons/Music/Music.gd" type="Script" id=2]
+[ext_resource path="res://addons/randomAudioStreamPlayer/random_audio_stream_player.gd" type="Script" id=4]
+[ext_resource path="res://Music and Sounds/Otouta/Happy/Kimama for jazzy.mp3" type="AudioStream" id=5]
+[ext_resource path="res://Music and Sounds/Otouta/Happy/Egao kakeru.mp3" type="AudioStream" id=6]
+[ext_resource path="res://Music and Sounds/Otouta/Happy/Walk in Oshare city.mp3" type="AudioStream" id=7]
+[ext_resource path="res://Music and Sounds/Otouta/Happy/Snow dance.mp3" type="AudioStream" id=8]
+[ext_resource path="res://Music and Sounds/Otouta/Happy/Sound of earth.mp3" type="AudioStream" id=9]
+[ext_resource path="res://Music and Sounds/Ky/Happy/Seichou no theme.mp3" type="AudioStream" id=10]
+[ext_resource path="res://Music and Sounds/Basement/Happy/Shiraki to neko no hige.mp3" type="AudioStream" id=11]
+[ext_resource path="res://Music and Sounds/R-Side/Happy/Choco zai.mp3" type="AudioStream" id=12]
+[ext_resource path="res://Music and Sounds/R-Side/Happy/Repeat after me.mp3" type="AudioStream" id=13]
+[ext_resource path="res://Music and Sounds/Aki/Happy/Asobi ba.mp3" type="AudioStream" id=14]
+[ext_resource path="res://Music and Sounds/R-Side/Happy/Yuami.mp3" type="AudioStream" id=15]
+[ext_resource path="res://Music and Sounds/L-Side/Happy/Nanashi no comedian.mp3" type="AudioStream" id=16]
+
+[sub_resource type="AudioStreamGenerator" id=1]
+
+[node name="Node" type="Node"]
+pause_mode = 2
+script = ExtResource( 2 )
+
+[node name="HappyMusic" type="AudioStreamPlayer" parent="."]
+stream = SubResource( 1 )
+mix_target = 1
+bus = "Music"
+script = ExtResource( 4 )
+samples = [ ExtResource( 6 ), ExtResource( 5 ), ExtResource( 1 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 7 ), ExtResource( 14 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 16 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 15 ) ]
+random_strategy = 1
+
+[connection signal="finished" from="HappyMusic" to="." method="_on_Music_finished"]
